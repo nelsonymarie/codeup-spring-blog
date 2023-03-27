@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Head contents -->
+</head>
+<body>
+<header th:include="partials/header :: header"></header>
+<nav th:include="partials/navbar :: navbar"></nav>
+
+<h2 th:text="${post.title}"></h2>
+<p th:text="${post.body}"></p>
+
+<footer th:include="partials/footer :: footer"></footer>
+</body>
+</html>
