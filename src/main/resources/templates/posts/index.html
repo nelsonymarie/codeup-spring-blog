@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Head contents -->
-    <title></title></head>
+</head>
 <body>
 <header th:include="partials/header :: header"></header>
 <nav th:include="partials/navbar :: navbar"></nav>
-
 <div th:each="post : ${posts}">
     <h2 th:text="${post.title}"></h2>
     <p th:text="${post.body}"></p>
 </div>
-
 <footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>

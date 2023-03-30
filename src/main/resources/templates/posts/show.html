@@ -6,10 +6,26 @@
 <body>
 <header th:include="partials/header :: header"></header>
 <nav th:include="partials/navbar :: navbar"></nav>
-
 <h2 th:text="${post.title}"></h2>
 <p th:text="${post.body}"></p>
-
+<p>Created by: <strong th:text="${post.user.email}"></strong></p>
 <footer th:include="partials/footer :: footer"></footer>
 </body>
 </html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  &lt;!&ndash; Head contents &ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
+<!--<header th:include="partials/header :: header"></header>-->
+<!--<nav th:include="partials/navbar :: navbar"></nav>-->
+<!--<h2 th:text="${post.title}"></h2>-->
+<!--<p th:text="${post.body}"></p>-->
+<!--<footer th:include="partials/footer :: footer"></footer>-->
+<!--</body>-->
+<!--</html>-->
