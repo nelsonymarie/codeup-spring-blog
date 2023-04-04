@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <!-- Head contents -->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="partials/head :: head('All Posts')">
+    <!-- Add Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-<header th:include="partials/header :: header"></header>
-<nav th:include="partials/navbar :: navbar"></nav>
-<div th:each="post : ${posts}">
-    <h2 th:text="${post.title}"></h2>
-    <p th:text="${post.body}"></p>
+<body class="mb-4">
+<div class="wrapper">
+    <nav th:replace="partials/navbar :: navbar"></nav>
+    <header class="container my-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4">Spring Blog</h1>
+                <p class="lead">All Posts</p>
+            </div>
+        </div>
+    </header>
+    <main class="container d-flex justify-content-center">
+        <div class="row">
+            <div th:each="post : ${posts}" class="col-12 border p-4 mt-4">
+                <a th:href="@{|/posts/${post.id}|}"><h2 th:text="${post.title}" class="mb-3"></h2></a>
+                <p th:text="${post.body}"></p>
+                <a th:href="'mailto:'+${post.user.email}"><span th:text="${post.user.email}" class="d-block mb-3"></span> </a>
+                <br>
+                <a th:href="@{|/posts/${post.id}/edit|}" class="float-right"><button type="submit" class="btn btn-primary mr-3">Edit Post</button></a>
+                <form th:action="@{|/posts/delete/${post.id}|}" th:method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </main>
 </div>
-<footer th:include="partials/footer :: footer"></footer>
+<th:block th:replace="partials/scripts :: scripts" />
+<!-- Add Bootstrap JavaScript file -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
-package com.codeup.codeupspringblog.repositories;
-
-import com.codeup.codeupspringblog.models.AdListing;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface AdListingRepository extends JpaRepository<AdListing, Long> {
-}
+//package com.codeup.codeupspringblog.repositories;
+//
+//import com.codeup.codeupspringblog.models.AdListing;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//
+//public interface AdListingRepository extends JpaRepository<AdListing, Long> {
+//}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title th:text="'Ooops, ' + ${error}"></title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<th:block th:switch="${error}">
+  <div class="container" th:case="'Not Found'">
+    <h1>Page not found!!</h1>
+    <p>Sorry, the requested page could not be found.</p>
+  </div>
+  <div class="container" th:case="'Forbidden'">
+    <h1>Access Denied</h1>
+    <p>Sorry, you don't have permission to view this page.</p>
+  </div>
+  <div class="container" th:case="null">
+    <h1>Internal Server Error</h1>
+    <p>Sorry, there was an error processing your request. Please try again later.</p>
+  </div>
+</th:block>
+<!-- Add Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha384-HaIBeAaZfPvZ+WSdxY1h1zy2+PAdGCrL/EaBf52MvXGKG/RE/NZjWJd1w0wMclD/" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha384-ApNbghf5KjFoW+hX9AhssAgZ5KQjK8fY+9bcyxc25mK7JUCRiBcfpHPGJ9aJXfdJ" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
